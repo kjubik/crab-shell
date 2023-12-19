@@ -1,5 +1,8 @@
 use crossterm::event::{read, Event, KeyCode};
-use crossterm::{cursor, execute, terminal::{enable_raw_mode, disable_raw_mode}};
+use crossterm::{
+    cursor, execute,
+    terminal::{disable_raw_mode, enable_raw_mode},
+};
 use std::io::{self, stdout, Write};
 
 pub fn read_user_input() -> String {
