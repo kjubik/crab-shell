@@ -24,7 +24,7 @@ fn handle_char_input(user_input: &mut String) {
                 KeyCode::Enter => {
                     print!("\r\n");
                     break;
-                },
+                }
                 KeyCode::Left => {
                     execute!(stdout(), cursor::MoveLeft(1)).unwrap();
                 }
