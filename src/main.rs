@@ -1,8 +1,5 @@
-use colored::Colorize;      // https://crates.io/crates/colored
+use colored::Colorize; // https://crates.io/crates/colored
 
 fn main() {
-    println!("{}\nA Unix shell written in Rust.", 
-    "Crab Shell".bold());
-
-    
+    println!("{}\nA Unix shell written in Rust.", "Crab Shell".bold());
 }
