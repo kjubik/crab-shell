@@ -1,3 +1,8 @@
+use colored::Colorize;      // https://crates.io/crates/colored
+
 fn main() {
-    println!("Hello, world!");
+    println!("{}\nA Unix shell written in Rust.", 
+    "Crab Shell".bold());
+
+    
 }
