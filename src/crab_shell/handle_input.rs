@@ -21,7 +21,10 @@ fn handle_char_input(user_input: &mut String) {
     loop {
         match read().unwrap() {
             Event::Key(event) => match event.code {
-                KeyCode::Enter => break,
+                KeyCode::Enter => {
+                    print!("\r\n");
+                    break;
+                },
                 KeyCode::Left => {
                     execute!(stdout(), cursor::MoveLeft(1)).unwrap();
                 }
