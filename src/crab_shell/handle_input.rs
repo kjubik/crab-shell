@@ -28,7 +28,9 @@ fn handle_char_input(user_input: &mut String) {
                     break;
                 }
                 KeyCode::Backspace => {
-                    if index == 0 { continue; };
+                    if index == 0 {
+                        continue;
+                    };
                     // logic
                     index -= 1;
                     user_input.remove(index);
@@ -36,15 +38,19 @@ fn handle_char_input(user_input: &mut String) {
                     execute!(stdout(), cursor::MoveLeft(1)).unwrap();
                     print!(" ");
                     execute!(stdout(), cursor::MoveLeft(1)).unwrap();
-                
+
                     execute!(stdout(), cursor::SavePosition).unwrap();
                     execute!(stdout(), Clear(ClearType::UntilNewLine)).unwrap();
-                    for c in user_input.chars().skip(index) { print!("{}", c); }
+                    for c in user_input.chars().skip(index) {
+                        print!("{}", c);
+                    }
                     io::stdout().flush().unwrap();
                     execute!(stdout(), cursor::RestorePosition).unwrap();
                 }
                 KeyCode::Left => {
-                    if index == 0 { continue; }
+                    if index == 0 {
+                        continue;
+                    }
                     // logic
                     index -= 1;
                     // display
