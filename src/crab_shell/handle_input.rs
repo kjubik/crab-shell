@@ -56,7 +56,15 @@ fn handle_char_input(user_input: &mut String) {
                     // display
                     execute!(stdout(), cursor::MoveLeft(1)).unwrap();
                 }
-                KeyCode::Right => {}
+                KeyCode::Right => {
+                    if index == user_input.len() {
+                        continue;
+                    }
+                    // logic
+                    index += 1;
+                    // display
+                    execute!(stdout(), cursor::MoveRight(1)).unwrap();
+                }
                 KeyCode::Up => {}
                 KeyCode::Down => {}
                 KeyCode::Char(c) => {
