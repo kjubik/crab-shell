@@ -68,9 +68,23 @@ fn handle_char_input(user_input: &mut String) {
                 KeyCode::Up => {}
                 KeyCode::Down => {}
                 KeyCode::Char(c) => {
-                    user_input.push(c);
-                    print!("{}", c);
-                    io::stdout().flush().unwrap();
+                    if index == user_input.len() {
+                        user_input.push(c);
+                        print!("{}", c);
+                        io::stdout().flush().unwrap();
+                    }
+                    else {
+                        user_input.insert(index, c);
+                        execute!(stdout(), cursor::SavePosition).unwrap();
+                        execute!(stdout(), Clear(ClearType::UntilNewLine)).unwrap();
+                        for c in user_input.chars().skip(index) {
+                            print!("{}", c);
+                        }
+                        io::stdout().flush().unwrap();
+                        execute!(stdout(), cursor::RestorePosition).unwrap();
+                        execute!(stdout(), cursor::MoveRight(1)).unwrap();
+                    }
+
                     index += 1;
                 }
                 _ => {}
