@@ -8,7 +8,7 @@ use std::io::{self, stdout, Write};
 pub fn read_user_input() -> String {
     let mut user_input = String::new();
 
-    print!("> ");
+    print!("$ ");
     io::stdout().flush().unwrap();
     handle_char_input(&mut user_input);
 
