@@ -72,8 +72,7 @@ fn handle_char_input(user_input: &mut String) {
                         user_input.push(c);
                         print!("{}", c);
                         io::stdout().flush().unwrap();
-                    }
-                    else {
+                    } else {
                         user_input.insert(index, c);
                         execute!(stdout(), cursor::SavePosition).unwrap();
                         execute!(stdout(), Clear(ClearType::UntilNewLine)).unwrap();
