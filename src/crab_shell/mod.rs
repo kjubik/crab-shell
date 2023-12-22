@@ -1,5 +1,5 @@
 mod handle_input;
-use colored::Colorize;
+mod list_files;
 
 pub fn run() {
     let mut user_input = String::new();
@@ -11,6 +11,7 @@ pub fn run() {
         match user_input.as_str() {
             "exit" => break,
             "help" => handle_displaying_help(),
+            "ls" => list_files::handle_listing_files("."),
             _ => println!("Invalid command"),
         }
     }
