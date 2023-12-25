@@ -7,7 +7,6 @@ pub fn run() {
     loop {
         user_input.clear();
         user_input = handle_input::read_user_input().to_string();
-        // println!("User typed in '{}'", user_input.italic());
         match user_input.as_str() {
             "exit" => break,
             "help" => handle_displaying_help(),
