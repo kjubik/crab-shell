@@ -1,4 +1,5 @@
-use std::fs::read_dir;
+use std::fs::{read_dir, metadata};
+use colored::Colorize;
 
 pub fn handle_listing_files(directory: &str) {
     match list_files(directory) {
@@ -14,7 +15,14 @@ fn list_files(directory: &str) -> std::io::Result<()> {
         let entry = entry?;
         let relative_path = entry.path();
         let shortened_path = relative_path.strip_prefix("./").unwrap_or(&relative_path);
-        println!("{}", shortened_path.display());
+        let metadata = metadata(&shortened_path)?;
+        if metadata.is_dir() {
+            println!("{}", shortened_path.display().to_string().blue());
+        } else if metadata.is_file() {
+            println!("{}", shortened_path.display().to_string());
+        } else {
+            println!("{}", shortened_path.display().to_string().yellow());
+        }
     }
 
     Ok(())
