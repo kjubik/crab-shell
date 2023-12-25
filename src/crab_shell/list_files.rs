@@ -1,5 +1,5 @@
-use std::fs::{read_dir, metadata};
 use colored::Colorize;
+use std::fs::{metadata, read_dir};
 
 pub fn handle_listing_files(directory: &str) {
     match list_files(directory) {
